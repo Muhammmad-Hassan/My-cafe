@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: rgb(244, 244, 244);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-width {
+    width: calc(100vw - 288px);
+    /* margin-left: 18.4vw; */
+}
+.custom-width-small {
+    width: calc(100vw - 68px);
+    /* margin-left: 4.6vw; */
+}
+
+.custom-height {
+    height: fit-content;
+}
