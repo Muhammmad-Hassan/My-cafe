@@ -2,13 +2,11 @@ import React, { useContext } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import Context from "../Hleper/Context"
 
 import { removeFromCart , incrementQty ,decrementQty} from "../Hleper/slice/CartSlice";
 
 function CartItem({ name, img, id, qty, pricee, size }) {
   const dipatch = useDispatch();
-  const {expanded} = useContext(Context)
 
   let price = pricee * qty
   return (

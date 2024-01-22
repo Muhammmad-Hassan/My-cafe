@@ -19,7 +19,7 @@ function Card({ img, name, desc, options, id }) {
     <>
       <img
         src={img}
-        className="rounded-md h-[100px] w-[190px] hover:scale-105 transition-all cursor-grab ease-in-out duration-200"
+        className="rounded-md lg:h-[200px] w-[250px] hover:scale-105 transition-all cursor-grab ease-in-out duration-200"
       />
       <div className="">
         <h5 className="mt-1 font-semibold">{name}</h5>

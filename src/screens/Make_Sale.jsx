@@ -1,10 +1,8 @@
 import React, { useContext, useState } from "react";
 import Card from "../conponents/Card";
-import Contex from "../Hleper/Context";
 import Cart from "./Cart";
 
 function Make_Sale() {
-  const { expanded } = useContext(Contex);
   const [search, setSearch] = useState("");
   const [active, setActive] = useState(true);
 
@@ -194,9 +192,7 @@ function Make_Sale() {
 
   return (
     <div
-      className={`h-[100vh] items-center overflow-auto  ${
-        expanded ? "custom-width ma" : "custom-width-small"
-      }`}
+      className={`h-[100vh] items-center overflow-auto  `}
     >
       <div
         className={`h-20 fixed top-0 w-full ml-0 bg-gray-200 flex items-center px-2 `}
@@ -223,7 +219,7 @@ function Make_Sale() {
         </button>
       </div>
       {/* cards */}
-      <div className={`${expanded || active ? "w-[70vw]" : "w-[92vw]"}   mt-36`}>
+      <div className={`${ active ? "w-[70vw]" : "w-[100vw]"}   mt-36`}>
         {foodCat.map((data, index) => (
           <div key={index}>
             <div key={index} className="font-bold ml-9">
