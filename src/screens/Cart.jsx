@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
+import { MdOutlineFoodBank } from "react-icons/md";
 
 import { useSelector } from "react-redux";
 import { IoMdClose } from "react-icons/io";
@@ -37,14 +38,14 @@ function Cart({ active, setActive }) {
   return (
     <>
       <div
-        className={`fixed top-32 right-0 bg-gray-200  lg:w-[28vw]   p-5 h-full  ${
+        className={`fixed top-32 right-0 outline-none outline-lime-50 outline-1 shadow-lg w-full lg:w-[28vw]   p-5 h-full  ${
           active ? "translate-x-0" : "translate-x-full"
         } transition-all duration-500 z-50 `}
       >
         <div>
           <div className="">
             <div className="flex justify-between scroll-smooth">
-              <span className="font-bold text-xl text-gray-700">My Orders</span>{" "}
+              <span className="font-bold text-x">My Orders</span>{" "}
               <IoMdClose
                 className="text-2xl p-1 hover:bg-orange-500 transition-all duration-200  cursor-pointer rounded-sm"
                 onClick={() => setActive(!active)}
@@ -70,7 +71,7 @@ function Cart({ active, setActive }) {
               </div>
             ))
           ) : (
-            <h4 className="text-center font-bold text-2xl text-gray-700 mt-10">
+            <h4 className="text-center font-bold text-2xl  mt-10">
               The Cart is empty
             </h4>
           )}
@@ -84,7 +85,7 @@ function Cart({ active, setActive }) {
       </div>
       <FaShoppingCart
         onClick={() => setActive(!active)}
-        className="rounded-full bg-white shadow-md text-5xl hover:scale-125 transition-all duration-200 p-3 fixed bottom-4  right-9 hover:cursor-pointer"
+        className="rounded-full bg-gray-800 shadow-lg text-5xl hover:scale-125 transition-all duration-200 p-3 fixed bottom-4  right-9 hover:cursor-pointer"
       />
     </>
   );

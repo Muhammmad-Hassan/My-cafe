@@ -4,7 +4,7 @@ import Cart from "./Cart";
 
 function Make_Sale() {
   const [search, setSearch] = useState("");
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
 
   const [foodItems, setFoodItems] = useState([
     {
@@ -194,29 +194,20 @@ function Make_Sale() {
     <div
       className={`h-[100vh] items-center overflow-auto  `}
     >
-      <div
-        className={`h-20 fixed top-0 w-full ml-0 bg-gray-200 flex items-center px-2 `}
-      >
-        <h1 className="font-bold text-2xl ">Make a Sale</h1>
-      </div>
+      
       {/* header */}
       <div
-        className={`h-12  fixed top-20  w-full flex items-center  bg-gray-200 `}
+        className={`h-12  fixed top-20  w-full flex items-center  z-30 shadow-lg `}
       >
-        <div className=" w-[40%] ml-6 flex items-center mt-1 justify-center">
+        <div className=" w-[100%] mx-3 lg:mx-5 flex items-center mt-1 justify-center">
           <input
-            className="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 border-opacity-40 leading-tight "
+            className="shadow focus:outline-none  appearance-none border rounded w-full py-1 px-2 text-gray-700 border-opacity-40 leading-tight "
             // value={search} 
             onChange={(e)=> {setSearch(e.target.value)}}
             placeholder="Entre text to search"
           />
         </div>
-        <button className="btn rounded-lg px-3 py-1 hover:opacity-80 transition-all bg-indigo-200 text-sm ml-1">
-          Find
-        </button>
-        <button className="btn rounded-lg px-3 py-1 hover:opacity-80 transition-all  bg-indigo-200 text-sm ml-1">
-          Clear
-        </button>
+       
       </div>
       {/* cards */}
       <div className={`${ active ? "w-[70vw]" : "w-[100vw]"}   mt-36`}>
@@ -227,7 +218,7 @@ function Make_Sale() {
             </div>
             <hr />
 
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center lg:justify-normal">
               {foodItems
                 .filter(
                   (item) =>
@@ -237,7 +228,7 @@ function Make_Sale() {
                 .map((filterItems) => (
                   <div
                     key={filterItems.id}
-                    className="flex flex-col  m-2 border-solid border-2 shadow-xl  p-3 rounded-lg"
+                    className="flex flex-col mb-3 m-2 border-solid border-2 shadow-xl  p-3 rounded-lg"
                   >
                     <Card
                       img={filterItems.img}
