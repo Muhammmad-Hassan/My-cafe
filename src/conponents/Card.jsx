@@ -19,12 +19,12 @@ function Card({ img, name, desc, options, id }) {
     <>
       <img
         src={img}
-        className="rounded-md h-[150px] w-[500px] lg:h-[200px] lg:w-[250px] hover:scale-105 transition-all cursor-grab ease-in-out duration-200"
+        className="rounded-md object-cover h-[180px] w-[150px] lg:h-[200px] lg:w-[250px] hover:scale-105 transition-all cursor-grab ease-in-out duration-200"
       />
       <div className="">
-        <h5 className="mt-1 font-semibold">{name}</h5>
-        <p className="mt- font-normal text-sm">
-          {"this is some important text"}
+        <h5 className="mt-1 font-semibold ">{name}</h5>
+        <p className=" font-normal text-sm w-[100px] lg:w-full">
+          {"this is some important text "}
         </p>
       </div>
       <div className="flex justify-between py-1">
@@ -43,7 +43,7 @@ function Card({ img, name, desc, options, id }) {
       </div>
       <hr className="" />
       <button
-        className="p-1 mt-2 hover:scale-105 outline outline-2 outline-lime-50 focus:opacity-35 focus:scale-100 focus:text-white focus:bg-black transition-all duration-50 w-full shadow-black text-xs shadow-sm hover: rounded-md  hover:opacity-80"
+        className="p-1 mt-2 hover:scale-105 hover:border hover:text-yellow-600 border-solid border-yellow-600 bg-yellow-500 opacity-95 hover:bg-white focus:opacity-35 focus:scale-10 transition-all duration-50   text-xs  rounded-md "
         onClick={() => {
           dipatch(addToCart({ id, img, name,size, price, qty: 1 }));
         }}

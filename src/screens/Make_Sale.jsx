@@ -3,7 +3,6 @@ import Card from "../conponents/Card";
 import Cart from "./Cart";
 
 function Make_Sale() {
-  const [search, setSearch] = useState("");
   const [active, setActive] = useState(false);
 
   const [foodItems, setFoodItems] = useState([
@@ -150,7 +149,7 @@ function Make_Sale() {
     {
       CategoryName: "Pizza",
       id: 11,
-      name: "Chicken Cheese Pizza",
+      name: "Chicken Cheese",
       img: "https://media.istockphoto.com/photos/double-topping-pizza-on-the-wooden-desk-isolated-picture-id1074109872?k=20&m=1074109872&s=612x612&w=0&h=JoYwwTfU_mMBykXpRB_DmgeecfotutOIO9pV5_JObpk=",
       options: [
         {
@@ -196,39 +195,22 @@ function Make_Sale() {
     >
       
       {/* header */}
-      <div
-        className={`h-12  fixed top-20  w-full flex items-center  z-30 shadow-lg `}
-      >
-        <div className=" w-[100%] mx-3 lg:mx-5 flex items-center mt-1 justify-center">
-          <input
-            className="shadow focus:outline-none  appearance-none border rounded w-full py-1 px-2 text-gray-700 border-opacity-40 leading-tight "
-            // value={search} 
-            onChange={(e)=> {setSearch(e.target.value)}}
-            placeholder="Entre text to search"
-          />
-        </div>
-       
-      </div>
+      
       {/* cards */}
-      <div className={`${ active ? "w-[70vw]" : "w-[100vw]"}   mt-36`}>
+      <div className={`${ active ? "w-[80vw]" : "w-[100vw]"} lg:mx-6 mt-24`}>
         {foodCat.map((data, index) => (
           <div key={index}>
-            <div key={index} className="font-bold ml-9">
+            <div key={index} className=" font-extrabold text-2xl ml-9 ">
               {data.CategoryName}
             </div>
             <hr />
 
-            <div className="flex flex-wrap justify-center lg:justify-normal">
-              {foodItems
-                .filter(
-                  (item) =>
-                    item.CategoryName === data.CategoryName &&
-                    item.name.toLowerCase().includes(search.toLocaleLowerCase())
-                )
+            <div className="flex flex-wrap  justify-center lg:justify-normal">
+              {foodItems               
                 .map((filterItems) => (
                   <div
                     key={filterItems.id}
-                    className="flex flex-col mb-3 m-2 border-solid border-2 shadow-xl  p-3 rounded-lg"
+                    className="flex flex-col  mb-3 m-2 border-solid border-2 shadow-xl  p-3 rounded-lg"
                   >
                     <Card
                       img={filterItems.img}

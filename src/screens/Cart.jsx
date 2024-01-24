@@ -38,7 +38,7 @@ function Cart({ active, setActive }) {
   return (
     <>
       <div
-        className={`fixed top-32 right-0 outline-none outline-lime-50 outline-1 shadow-lg w-full lg:w-[28vw]   p-5 h-full  ${
+        className={`fixed top-32 right-0 border-2 border-solid border-yellow-500 shadow-lg w-full lg:w-[23vw]   p-5 h-full  ${
           active ? "translate-x-0" : "translate-x-full"
         } transition-all duration-500 z-50 `}
       >
@@ -85,7 +85,7 @@ function Cart({ active, setActive }) {
       </div>
       <FaShoppingCart
         onClick={() => setActive(!active)}
-        className="rounded-full bg-gray-800 shadow-lg text-5xl hover:scale-125 transition-all duration-200 p-3 fixed bottom-4  right-9 hover:cursor-pointer"
+        className="rounded-full bg-yellow-500   shadow-lg text-5xl hover:scale-110 transition-all duration-200 p-3 fixed top-4 z-30  right-9 hover:cursor-pointer"
       />
     </>
   );
