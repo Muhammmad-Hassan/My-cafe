@@ -26,12 +26,12 @@ function CartItem({ name, img, id, qty, pricee, size }) {
           <p>{name}</p> <p>{size}</p>{" "}
           <MdDelete
             onClick={() => dipatch(removeFromCart({ id }))}
-            className=" fill-red-600 cursor-pointer text-xl hover:scale-125 transition-all duration-200"
+            className=" fill-red-600 outline outline-1 outline-red-600 rounded-sm cursor-pointer text-xl hover:scale-110 transition-all duration-200"
           />
         </div>
         <div className="flex justify-between">
           <p>Rs.{price}</p>
-          <div className="flex items-center justify-between w-14 ">
+          <div className="flex items-center justify-between w-14">
             <AiOutlinePlus
               onClick={() => dipatch(incrementQty({ id }))}
               className="text-xl hover:scale-110 transition-all duration-100 p-1 bg-yellow-500  cursor-pointer rounded-sm"
