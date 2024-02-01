@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Make_Sale from "./screens/Make_Sale";
+import ContextProvider from "./Hleper/ContextProvider";
 import  Navbar  from "./conponents/Navbar";
 function App() {
   return (
+    <ContextProvider>
       <BrowserRouter basename="/My-cafe">
         <div className="">
           <Navbar/>
@@ -12,6 +14,8 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
+    </ContextProvider>
+      
   );
 }
 

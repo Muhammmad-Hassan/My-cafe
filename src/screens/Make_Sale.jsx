@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import Card from "../conponents/Card";
 import Cart from "./Cart";
+import Context from "../Hleper/Context";
+import FullPageCarousel from "./Carousel";
 
 function Make_Sale() {
-  const [active, setActive] = useState(false);
-
+  const { active, setActive } = useContext(Context);
   const [foodItems, setFoodItems] = useState([
     {
       CategoryName: "Biryani/Rice",
@@ -190,47 +191,50 @@ function Make_Sale() {
   ]);
 
   return (
-    <div
-      className={`h-[100vh] items-center overflow-auto  `}
-    >
-      
-      {/* header */}
-      
-      {/* cards */}
-      <div className={`${ active ? "w-[80vw]" : "w-[100vw]"} lg:mx-6 mt-24`}>
-        {foodCat.map((data, index) => (
-          <div key={index}>
-            <div key={index} className=" font-extrabold text-2xl ml-9 ">
-              {data.CategoryName}
-            </div>
-            <hr />
+    <>
+      <div className={`h-[100%] items-center overflow-auto w-full`}>
+      <FullPageCarousel />
+        <div className="flex justify-center"></div>
+        {/* cards */}
+        <div className={`${active ? "w-[80%]" : "w-[100%]"}`}>
+          {foodCat.map((data, index) => (
+            <div key={index}>
+              <div key={index} className="font-extrabold text-2xl ml-9 ">
+                {data.CategoryName}
+              </div>
+              <hr />
 
-            <div className="flex flex-wrap  justify-center lg:justify-normal">
-              {foodItems               
-                .map((filterItems) => (
-                  <div
-                    key={filterItems.id}
-                    className="flex flex-col  mb-3 m-2 border-solid border-2 shadow-xl  p-3 rounded-lg"
-                  >
-                    <Card
-                      img={filterItems.img}
-                      name={filterItems.name}
-                      id={filterItems.id}
-                      desc={"this is some important text"}
-                      options={
-                        filterItems.options && filterItems.options.length > 0
-                          ? filterItems.options[0]
-                          : []
-                      }
-                    />
-                  </div>
-                ))}
+              <div className="flex flex-wrap  justify-center lg:justify-normal">
+                {foodItems
+                  .filter(
+                    (item) => item.CategoryName === data.CategoryName
+                    // item.name.toLowerCase().includes(search.toLocaleLowerCase())
+                  )
+                  .map((filterItems) => (
+                    <div
+                      key={filterItems.id}
+                      className="flex flex-col  mb-3 m-2 border-solid border-2 shadow-xl  p-3 rounded-lg"
+                    >
+                      <Card
+                        img={filterItems.img}
+                        name={filterItems.name}
+                        id={filterItems.id}
+                        desc={"this is some important text"}
+                        options={
+                          filterItems.options && filterItems.options.length > 0
+                            ? filterItems.options[0]
+                            : []
+                        }
+                      />
+                    </div>
+                  ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <Cart />
       </div>
-      <Cart active={active} setActive={setActive} />
-    </div>
+    </>
   );
 }
 

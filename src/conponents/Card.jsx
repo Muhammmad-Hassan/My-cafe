@@ -8,7 +8,7 @@ function Card({ img, name, desc, options, id }) {
   let priceOptions = Object.keys(options);
 
   let price = options[size];
-  console.log(`${size} Hi `)
+  // console.log(`${size} Hi`)
 
   useEffect(() => {
     setSize(priceRef.current.value);
