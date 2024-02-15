@@ -3,6 +3,7 @@ import Card from "../conponents/Card";
 import Cart from "./Cart";
 import Context from "../Hleper/Context";
 import FullPageCarousel from "./Carousel";
+import { Toaster } from "react-hot-toast";
 
 function Make_Sale() {
   const { active, setActive } = useContext(Context);
@@ -175,7 +176,7 @@ function Make_Sale() {
         },
       ],
       description:
-        "Made using Indian masalas and Basmati rice. Barbequed pieces of Paneer/Chicken/Mutton were added.",
+      "Made using Indian masalas and Basmati rice. Barbequed pieces of Paneer/Chicken/Mutton were added.",
     },
   ]);
   const [foodCat, setFoodCat] = useState([
@@ -190,10 +191,12 @@ function Make_Sale() {
     },
   ]);
 
+  
   return (
     <>
+    <Toaster/>
       <div className={`h-[100%] items-center overflow-auto w-full`}>
-      <FullPageCarousel />
+        <FullPageCarousel />
         <div className="flex justify-center"></div>
         {/* cards */}
         <div className={`${active ? "w-[80%]" : "w-[100%]"}`}>

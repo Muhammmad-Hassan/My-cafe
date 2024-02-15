@@ -5,10 +5,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import image1 from "../assets/image1.jpg"
 import image2 from "../assets/image2.jpg"
 import image3 from "../assets/image3.jpg"
-import Context from '../Hleper/Context';
 
 const Carousel = () => {
-    const {active} = useContext(Context)
   const settings = {
     dots: true,
     infinite: true,
@@ -16,15 +14,16 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true, // Enable fade transition
-    // cssEase: 'linear', // Linear easing for smoother fade
+    cssEase: 'linear', // Linear easing for smoother fade
+    
   };
 
   return (
-    <div  className={`${active ? "w-[80%]" : "w-[100%]"} mt-20 bg-green-500`}>
+    <div  className={` w-[100%] mt-20 `}>
       <Slider {...settings} className="rounded-sm overflow-hidden">
         <div className="relative">
           <img
-            src={image1}
+            src={image2}
             alt="Slide 1"
             className="w-full h-[100vh] object-cover rounded-sm transition-opacity duration-500"
           />
@@ -34,7 +33,7 @@ const Carousel = () => {
         </div>
         <div className="relative">
           <img
-            src={image2}
+            src={image1}
             alt="Slide 2"
             className="w-full h-[100vh] object-cover rounded-sm transition-opacity duration-500"
           />

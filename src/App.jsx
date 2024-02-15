@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Make_Sale from "./screens/Make_Sale";
 import ContextProvider from "./Hleper/ContextProvider";
 import  Navbar  from "./conponents/Navbar";
+import SignUp from "./screens/SignUp";
+
 function App() {
   return (
     <ContextProvider>
@@ -11,6 +13,7 @@ function App() {
           <Navbar/>
           <Routes>
             <Route path="/" element={<Make_Sale />} />
+            <Route path="/signup" element={<SignUp/>} />
           </Routes>
         </div>
       </BrowserRouter>
