@@ -14,14 +14,14 @@ function Card({ img, name, desc, options, id }) {
   }, [priceOptions]);
 
   const handleToast = (name) => {
-    toast.success(`${name} Added`);
+    toast.success(`${name} Added ` , { className: "bg-yellow-500 shadow-sm border-2 border-solid font-semibold border-black" });
   };
 
   return (
     <>
       <img
         src={img}
-        className="rounded-md object-cover h-[180px] w-[150px] lg:h-[200px] lg:w-[240px] hover:scale-105 transition-all cursor-grab ease-in-out duration-200"
+        className="rounded-md object-cover h-[180px] border-solid  w-[150px] lg:h-[200px] lg:w-[240px] hover:scale-105 transition-all cursor-grab ease-in-out duration-200"
       />
       <div className="">
         <h5 className="mt-1 font-semibold ">{name}</h5>

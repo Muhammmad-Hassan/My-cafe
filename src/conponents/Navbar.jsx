@@ -10,6 +10,7 @@ function Navbar() {
 
   const { active, setActive } = useContext(Context);
   const totalQty = cartItem.reduce((totalQty, item) => totalQty + item.qty, 0);
+  const totalItems = cartItem.reduce((total, item) => total + 1, 0);
 
   return (
     <div>
@@ -32,8 +33,8 @@ function Navbar() {
               onClick={() => setActive(!active)}
               className="rounded-full  bg-yellow-500 shadow-lg text-5xl hover:scale-110 transition-all duration-200 p-3  hover:cursor-pointer"
             />
-            <span className={` ${totalQty !=0 && "bg-red-400"} bg-yellow-500  shadow-xl shadow-black absolute -right-1 rounded-full   text-sm w-5 h-5 text-center `}>
-              {totalQty}
+            <span className={` ${totalItems !=0 && "bg-red-400"} bg-yellow-500  shadow-xl shadow-black absolute -right-1 rounded-full   text-sm w-5 h-5 text-center `}>
+              {totalItems}
             </span>
           </div>
         </div>
