@@ -3,7 +3,6 @@ import Card from "../conponents/Card";
 import Cart from "./Cart";
 import Context from "../Hleper/Context";
 import FullPageCarousel from "./Carousel";
-import { Toaster } from "react-hot-toast";
 
 function Make_Sale() {
   const { active, setActive } = useContext(Context);
@@ -194,7 +193,6 @@ function Make_Sale() {
   
   return (
     <>
-    <Toaster/>
       <div className={`h-[100%] items-center overflow-auto w-full`}>
         <FullPageCarousel />
         <div className="flex justify-center"></div>

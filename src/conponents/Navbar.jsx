@@ -9,7 +9,6 @@ function Navbar() {
   const cartItem = useSelector((state) => state.cart.cart);
 
   const { active, setActive } = useContext(Context);
-  const totalQty = cartItem.reduce((totalQty, item) => totalQty + item.qty, 0);
   const totalItems = cartItem.reduce((total, item) => total + 1, 0);
 
   return (
@@ -26,6 +25,11 @@ function Navbar() {
           <Link to={"/signup"} className=" bg-inherit">
             <button className="px-2 py-1.5 transition-all duration-200 rounded-md bg-yellow-500 hover:text-white  font-medium border border-black m-2">
               Sign Up
+            </button>
+          </Link>
+          <Link to={"/login"} className=" bg-inherit">
+            <button className="px-2 py-1.5 transition-all duration-200 rounded-md bg-yellow-500 hover:text-white  font-medium border border-black m-2">
+              Login
             </button>
           </Link>
           <div className="rounded-full flex fixed bottom-5 right-7">
