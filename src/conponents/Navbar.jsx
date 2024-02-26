@@ -37,7 +37,7 @@ function Navbar() {
               onClick={() => setActive(!active)}
               className="rounded-full  bg-yellow-500 shadow-lg text-5xl hover:scale-110 transition-all duration-200 p-3  hover:cursor-pointer"
             />
-            <span className={` ${totalItems !=0 && "bg-red-400"} bg-yellow-500  shadow-xl shadow-black absolute -right-1 rounded-full   text-sm w-5 h-5 text-center `}>
+            <span className={` ${totalItems !=0 ? "bg-red-500 text-gray-50" :"bg-yellow-500 "}  shadow-xl shadow-black absolute -right-1 rounded-full   text-sm w-5 h-5 text-center `}>
               {totalItems}
             </span>
           </div>

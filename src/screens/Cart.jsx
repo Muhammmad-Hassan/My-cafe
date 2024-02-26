@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { MdOutlineFoodBank } from "react-icons/md";
+import { drop } from "../Hleper/slice/CartSlice";
 
 import { useSelector } from "react-redux";
 import { IoMdClose } from "react-icons/io";
@@ -22,21 +23,25 @@ function Cart() {
 
     0
   );
-  // const placeOrder = async () => {
-  //   let userEmail = localStorage.getItem("userEmail");
-  //   console.log(userEmail);
 
-  //   try {
-  //     const result = await axios.post("http://127.0.0.1:5004/api/orderData", {
-  //       order_data: cartItem,
-  //       order_date: new Date().toString(),
-  //     });
-  //     dipatch(drop());
-  //     console.log("Order Responce", result);
-  //   } catch (error) {
-  //     // console.log(error)
-  //   }
-  // };
+  // +++++++++++ placeOrder ++++++++
+  const placeOrder = async () => {
+    let userEmail = localStorage.getItem("userEmail");
+    console.log(userEmail);
+
+    try {
+      const result = await axios.post("http://127.0.0.1:5004/api/orderData", {
+        order_data: cartItem,
+        order_date: new Date().toString(),
+      });
+      if (result.data.msg == "success") {
+        toast.success(`${result.data.notify}`);
+      }
+      dipatch(drop());
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -83,13 +88,16 @@ function Cart() {
               The Cart is empty
             </h4>
           )}
-          <button className="bg-gray-300 mt-4 ml-auto p-2 rounded-md  hover:shadow-md shadow-gray-400 transition-all duration-200">
-          Place order
-        </button>
+          <button
+            onClick={placeOrder}
+            className={`bg-gray-300 ${
+              cartItem.length == 0 && "hidden"
+            } mt-4 ml-auto p-2 rounded-md  hover:shadow-md shadow-gray-400 transition-all duration-200`}
+          >
+            Place order
+          </button>
         </div>
-        
       </div>
-     
     </>
   );
 }

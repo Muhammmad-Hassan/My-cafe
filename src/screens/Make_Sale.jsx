@@ -190,10 +190,12 @@ function Make_Sale() {
     },
   ]);
 
-  
+
+
   return (
     <>
       <div className={`h-[100%] items-center overflow-auto w-full`}>
+       
         <FullPageCarousel />
         <div className="flex justify-center"></div>
         {/* cards */}

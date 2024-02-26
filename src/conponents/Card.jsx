@@ -14,7 +14,7 @@ function Card({ img, name, desc, options, id }) {
   }, [priceOptions]);
 
   const handleToast = (name) => {
-    toast.success(`${name} Added ` , { className: "bg-yellow-500 shadow-sm border-2 border-solid font-semibold border-black" });
+    toast.success(`${name} Added ` , { className: "bg-yellow-500 shadow-sm text-xs border border-solid font-semibold border-black" });
   };
 
   return (
