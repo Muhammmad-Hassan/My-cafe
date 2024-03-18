@@ -5,13 +5,19 @@ import toast from "react-hot-toast";
 
 function Card({ img, name, desc, options, id }) {
   const [size, setSize] = useState("");
-  const priceRef = useRef();
   const priceOptions = Object.keys(options);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   setSize(priceOptions[0]); // Set the initial size to the first option
+  // }, [priceOptions]);
+
   useEffect(() => {
-    setSize(priceOptions[0]); // Set the initial size to the first option
-  }, [priceOptions]);
+    if (!size && priceOptions.length > 0) {
+      setSize(priceOptions[0]); // Set the initial size to the first option
+    }
+  }, [size, priceOptions]);
+  
 
   const handleToast = (name) => {
     toast.success(`${name} Added ` , { className: "bg-yellow-500 shadow-sm text-xs border border-solid font-semibold border-black" });
@@ -33,10 +39,9 @@ function Card({ img, name, desc, options, id }) {
         <select
           onChange={(e) => setSize(e.target.value)}
           className=" rounded-md cursor-pointer"
-          ref={priceRef}
           value={size}
         >
-          {priceOptions.map((data) => {
+          {priceOptions.map((data) => { 
             return (
               <option key={data} value={data}>
                 {data}
@@ -48,7 +53,7 @@ function Card({ img, name, desc, options, id }) {
       </div>
       <hr className="" />
       <button
-        className="p-1 mt-2 hover:scale-105 hover:border hover:text-yellow-600 border-solid border-yellow-600 bg-yellow-500 opacity-95 hover:bg-white focus:opacity-35 focus:scale-10 transition-all duration-50   text-xs  rounded-md "
+        className="p-1 mt-2   hover:text-yellow-600 border border-yellow-600 bg-yellow-500 opacity-95 hover:bg-white focus:opacity-35 focus:scale-10 transition-all duration-50   text-xs  rounded-md "
         onClick={() => {
           dispatch(addToCart({ id, img, name, size, price: options[size], qty: 1 }));
           handleToast(name);

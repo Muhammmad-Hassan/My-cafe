@@ -12,9 +12,9 @@ function Navbar() {
   const totalItems = cartItem.reduce((total, item) => total + 1, 0);
 
   return (
-    <div>
+    <div className="">
       <div
-        className={`h-20 fixed top-0 w-[100%] shadow-xl bg-yellow-500 flex items-center justify-between px-2 z-30 `}
+        className={`h-20 sticky top-0 w-[100%] shadow-xl bg-yellow-500 flex items-center justify-between px-2 z-30 `}
       >
         <Link to={"/"} className=" bg-inherit">
           <h1 className="font-bold ml-3 text-4xl flex items-center bg-inherit gap-1  sh">
@@ -23,7 +23,7 @@ function Navbar() {
         </Link>
         <div className="flex bg-yellow-500 items-center justify-center mr-3">
           <Link to={"/signup"} className=" bg-inherit">
-            <button className="px-2 py-1.5 transition-all duration-200 rounded-md bg-yellow-500 hover:text-white  font-medium border border-black m-2">
+            <button className="px-2  py-1.5 transition-all duration-200 rounded-md bg-yellow-500 hover:text-white  font-medium border border-black m-2">
               Sign Up
             </button>
           </Link>

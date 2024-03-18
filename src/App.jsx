@@ -11,7 +11,7 @@ function App() {
   return (
     <ContextProvider>
       <BrowserRouter basename="/My-cafe">
-        <div className="">
+        <div className="checking">
           <Toaster />
 
           <Navbar />
