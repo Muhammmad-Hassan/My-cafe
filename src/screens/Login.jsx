@@ -18,9 +18,9 @@ function Login() {
         email,
         password,
       });
-      if (resp.data === "success") {
+      if (resp.data.msg === "success") {
         navigate("/");
-        toast.success(`${resp.data}`);
+        toast.success(`${resp.data.welcome}`);
       } else {
         toast.error(`${resp.data}`);
       }

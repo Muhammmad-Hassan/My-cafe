@@ -43,7 +43,7 @@ const Carousel = () => {
               onLoad={handleImgLoad}
               src={slide.image}
               className={`w-full h-full object-cover rounded-sm transition-opacity duration-500 ${
-                isLoading ? "hidden" : ""
+                isLoading ? "hidden" : " visible"
               }`}
             />
           </div>

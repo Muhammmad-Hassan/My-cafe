@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import Loader from "../conponents/Loader";
 import useLoading from "../hooks/useLoading";
+import toast from "react-hot-toast";
 
 
 function SignUp() {
@@ -16,16 +17,22 @@ function SignUp() {
 
   
 //  SignUp data
-  const sumitHandler = async () => {
+  const sumitHandler = async (e) => {
+  e.preventDefault()
     try {
-      const response = axios.post("http://127.0.0.1:5004/api/signup", {
+      const response = await axios.post("http://127.0.0.1:5004/api/signup", {
         name,
         pass,
         email,
         address,
       });
-      console.log(response);
-      navigate("/");
+      if(response.data.success == "success"){
+        toast.success(`${response.data.msg}`)
+        navigate("/");
+      }
+      else{
+        console.log(response.data.msg)
+      }
     } catch (error) {
       console.log(error);
     }
