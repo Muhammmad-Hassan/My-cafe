@@ -13,7 +13,6 @@ function App() {
       <BrowserRouter basename="/My-cafe">
         <div className="checking">
           <Toaster />
-
           <Navbar />
           <Routes>
             <Route path="/" element={<Make_Sale />} />

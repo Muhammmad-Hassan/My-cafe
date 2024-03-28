@@ -194,12 +194,11 @@ function Make_Sale() {
 
   return (
     <>
-      <div className={`h-[100%]  xl:container mx-auto items-center overflow-auto w-full`}>
+      <div className={`h-[100%]  xl:container mx-auto items-center overflow-auto  w-full`}>
        
         <FullPageCarousel />
-        <div className="flex justify-center"></div>
         {/* cards */}
-        <div className={`${active ? "w-[80%]" : "w-[100%]"}`}>
+        <div className={` mt-10${active ? "w-[80%]" : "w-[100%]"}`}>
           {foodCat.map((data, index) => (
             <div key={index}>
               <div key={index} className="font-extrabold text-2xl ml-9 ">
